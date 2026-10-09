@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodie - Online Food Ordering</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="#" class="logo">
+      <span class="logo-icon">🍔</span>
+      Foodie<span class="dot">.</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
+      <button class="cart-btn" id="cartBtn">
+        🛒 <span>Cart</span>
+        <b id="cartCount">0</b>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">🔥 Fresh food, delivered fast</span>
+        <h1>Delicious food,<br><span>happy mood.</span></h1>
+        <p>Craving something delicious? Discover your favorite meals, order online, and enjoy every bite.</p>
+        <div class="hero-buttons">
+          <a href="#menu" class="primary-btn">Explore Menu <span>→</span></a>
+          <button class="play-btn" id="storyBtn">▶ <span>Our Story</span></button>
+        </div>
+        <div class="hero-stats">
+          <div><strong>50+</strong><small>Food Items</small></div>
+          <div class="stat-line"></div>
+          <div><strong>4.9 ⭐</strong><small>Customer Rating</small></div>
+          <div class="stat-line"></div>
+          <div><strong>30 min</strong><small>Fast Delivery</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-circle"></div>
+        <div class="hero-badge">
+          <span>⭐</span>
+          <div><strong>4.9/5</strong><small>Best rated</small></div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1000&auto=format&fit=crop&q=85" alt="Delicious burger with fries" class="hero-food">
+        <div class="floating-card">
+          <span class="float-icon">🚀</span>
+          <div><strong>Fast Delivery</strong><small>At your doorstep</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">EXPLORE OUR MENU</span>
+          <h2>What are you craving?</h2>
+        </div>
+        <p>Fresh ingredients, bold flavors, and meals made just for you.</p>
+      </div>
+
+      <div class="category-list" id="categoryList">
+        <button class="category active" data-category="All">🍽️ All</button>
+        <button class="category" data-category="Burgers">🍔 Burgers</button>
+        <button class="category" data-category="Pizza">🍕 Pizza</button>
+        <button class="category" data-category="Indian">🍛 Indian</button>
+        <button class="category" data-category="Drinks">🥤 Drinks</button>
+        <button class="category" data-category="Desserts">🍰 Desserts</button>
+      </div>
+
+      <div class="menu-toolbar">
+        <div class="search-box">
+          <span>🔍</span>
+          <input type="search" id="searchInput" placeholder="Search your favorite food...">
+        </div>
+        <select id="sortSelect" class="sort-select">
+          <option value="default">Sort: Recommended</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+        </select>
+      </div>
+
+      <div class="food-grid" id="foodGrid"></div>
+      <p class="empty-message" id="emptyMessage" hidden>No food items found. Try another search.</p>
+    </section>
+
+    <section class="offer-banner">
+      <div>
+        <span class="section-label">TODAY'S SPECIAL</span>
+        <h2>Get 20% off on your<br>first order!</h2>
+        <p>Use code <strong>FOODIE20</strong> at checkout.</p>
+        <button class="primary-btn" id="offerBtn">Order Now →</button>
+      </div>
+      <div class="offer-art">🍕</div>
+    </section>
+
+    <section class="about-section" id="about">
+      <span class="section-label">WHY CHOOSE FOODIE?</span>
+      <h2>Good food. Great experience.</h2>
+      <div class="benefits">
+        <div class="benefit"><span>🥗</span><h3>Fresh Ingredients</h3><p>Quality ingredients in every meal.</p></div>
+        <div class="benefit"><span>⚡</span><h3>Fast Delivery</h3><p>Hot and fresh food at your doorstep.</p></div>
+        <div class="benefit"><span>💛</span><h3>Made With Love</h3><p>Delicious meals made for your happiness.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">🍔 Foodie<span class="dot">.</span></div>
+    <p>© 2026 Foodie. Made with ❤️ for food lovers.</p>
+    <div class="socials"><span>📸</span><span>🐦</span><span>📘</span></div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart">
+    <div class="cart-header">
+      <div><h2>Your Cart 🛒</h2><p id="cartSubtitle">0 items in your cart</p></div>
+      <button class="close-btn" id="closeCart" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="empty-cart"><span>🛒</span><h3>Your cart is empty</h3><p>Add something delicious to get started!</p></div>
+    </div>
+    <div class="cart-bottom">
+      <div class="bill-row"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+      <div class="bill-row"><span>Delivery Fee</span><strong id="delivery">₹0</strong></div>
+      <div class="bill-row discount-row"><span>Discount</span><strong id="discount">-₹0</strong></div>
+      <div class="bill-total"><span>Total</span><strong id="total">₹0</strong></div>
+      <div class="coupon-box">
+        <input id="couponInput" placeholder="Coupon code">
+        <button id="couponBtn">Apply</button>
+      </div>
+      <p class="coupon-message" id="couponMessage"></p>
+      <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout →</button>
+    </div>
+  </aside>
+
+  <div class="modal" id="checkoutModal">
+    <div class="modal-card">
+      <button class="close-btn modal-close" id="closeModal">✕</button>
+      <div class="modal-icon">🍔</div>
+      <h2>Complete Your Order</h2>
+      <p>Enter your details to place a demo order.</p>
+      <form id="checkoutForm">
+        <label for="customerName">Full Name</label>
+        <input id="customerName" required placeholder="Enter your name">
+        <label for="customerPhone">Phone Number</label>
+        <input id="customerPhone" type="tel" required placeholder="10-digit phone number" pattern="[0-9]{10}">
+        <label for="customerAddress">Delivery Address</label>
+        <textarea id="customerAddress" required rows="3" placeholder="Enter delivery address"></textarea>
+        <button class="checkout-btn" type="submit">Place Order 🎉</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="storyModal">
+    <div class="modal-card story-card">
+      <button class="close-btn modal-close" id="closeStory">✕</button>
+      <div class="modal-icon">❤️</div>
+      <h2>Our Story</h2>
+      <p>Foodie is a college mini project designed to make food ordering simple, colorful, and fun. Explore our menu, add your favorites to the cart, and experience a smooth checkout.</p>
+      <button class="primary-btn" id="storyMenuBtn">Explore Menu →</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
